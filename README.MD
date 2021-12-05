@@ -5,3 +5,5 @@
 * Navigate to `/api/db/migrate.php` wthin browser to create database.
 
 ###### Now we can use project.
+
+To access data navigate to `/admin.html`
