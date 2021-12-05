@@ -1,0 +1,245 @@
+@import url("brands.css");
+@import url("solid.css");
+
+@import url("guidlines.css");
+@import url("mobile.css");
+
+body{
+    margin: 0;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+#app{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    
+    background: #FFFFFF;
+
+    overflow-x: hidden;
+}
+
+.bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+    background: url(../images/summer.png);
+    background-position-x: 680px;
+}
+
+.panel{
+    position: absolute;
+    width: 680px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    
+    background: linear-gradient(180deg, #FFFFFF 0%, #F2F5FA 100%);
+}
+
+.topNav{
+    position: relative;
+    width: 480px;
+    height: 40px;
+    left: 14.7%;
+    top: 10.7%;
+
+    display: flex;
+}
+
+.logo{
+    position: relative;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.topNavLogoName{
+    margin-left: 14px;
+    letter-spacing: 0.6pt;;
+}
+
+.navLinks{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    align-self: flex-end;
+}
+
+.navLinks .link{
+    margin-left: 26px;
+}
+
+.base{
+    position: absolute;
+    left: 20.6%;
+    top: 39.9%;
+
+    width: 400px;
+    height: 500px;
+}
+
+.emailInput{
+    position: relative;
+    left: -39px;
+    width: 663px;
+}
+
+.emailError{
+    color: #CC0000;
+    position: absolute;
+    transform: translate(-33px, -50px);
+    width: max-content;
+}
+
+.submitEmail{
+    position: absolute;
+    left: 600px;
+    top: 25px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.tosCheck{
+    padding-top: 3px;
+}
+
+._socialContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 42px;
+    gap: 20px;
+}
+
+.social{
+    width: 46px;
+    height: 46px;
+
+    border: 2px solid #E2E3E4;
+    box-sizing: border-box;
+    border-radius: 100%;
+    
+    text-decoration-line: none;
+
+    transition: all 100ms linear;
+
+    color: #131821;
+    opacity: 0.3;
+}
+
+.social:hover{
+    text-decoration-line: none;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+    color: #fff;
+    opacity: 1;
+}
+
+.social:active{
+    text-decoration-line: none;
+    box-shadow: 0px 20px 40px rgba(19, 24, 33, 0.3);
+    color: #fff;
+    opacity: 1;
+}
+
+.facebook:after{
+    text-align: center;
+    height: 100%;
+
+    font-family: "Font Awesome 5 Brands";
+    content: "\f39e";
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.facebook:hover{
+    background: #4267B2;
+}
+
+.facebook:active{
+    background: #2F4A80;
+}
+
+.instagram:after{
+    text-align: center;
+    height: 100%;
+
+    font-family: "Font Awesome 5 Brands";
+    content: "\f16d";
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instagram:hover{
+    background: #C13584;
+}
+
+.instagram:active{
+    background: #8F2762;
+}
+
+.twitter:after{
+    text-align: center;
+    height: 100%;
+
+    font-family: "Font Awesome 5 Brands";
+    content: "\f099";
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.twitter:hover{
+    background: #1DA1F2;
+}
+
+.twitter:active{
+    background: #177FBF;
+}
+
+.youtube:after{
+    text-align: center;
+    height: 100%;
+
+    font-family: "Font Awesome 5 Brands";
+    content: "\f167";
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.youtube:hover{
+    background: #FF0000;
+}
+
+.youtube:active{
+    background: #CC0000;
+}
+
+.baseSuccess{
+    position: relative;
+    top: -105px;
+}
+
+.iconSuccess{
+    margin-bottom: 23px;
+}
+
+.baseSuccess .baseText{
+    margin-top: 21px;
+    margin-bottom: -65px;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Magebit test emails page</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+        <script src="https://unpkg.com/axios@0.24.0/dist/axios.min.js"></script>
+        <style>
+            #app{
+                width: 500px;
+            }
+
+            table {
+                min-width: 100%;
+                text-align: center;
+                border-collapse: collapse;
+            }
+            table td, table th {
+                border: 1px solid #000000;
+                padding: 5px 4px;
+            }
+            table tbody td {
+                font-size: 13px;
+            }
+            table tr:nth-child(even) {
+                background: #EAEAEA;
+            }
+            table thead {
+                background: #CFCFCF;
+                background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+                background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+                background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+                border-bottom: 3px solid #000000;
+            }
+            table thead th {
+                font-size: 15px;
+                font-weight: bold;
+                color: #000000;
+                text-align: left;
+            }
+            table tfoot td {
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <fieldset>
+                <legend>Filters</legend>
+                <fieldset style="display: flex; justify-content: space-evenly;">
+                    <legend>Sort by</legend>
+                    <div>
+                        <div>Field</div>
+                        <input type="radio" id="id" name="sortBy" value="id" v-model="orderBy" @change="sort" checked>
+                        <label for="id">Id</label><br>
+                        <input type="radio" id="email" name="sortBy" value="email" v-model="orderBy" @change="sort">
+                        <label for="email">Email</label><br>
+                        <input type="radio" id="data" name="sortBy" value="date" v-model="orderBy" @change="sort">
+                        <label for="data">Date</label>
+                    </div>
+                    <div>
+                        <div>Order</div>
+                        <input type="radio" id="new" name="sortByOrder" value="new" v-model="orderSort" @change="sort" checked>
+                        <label for="mew">new</label><br>
+                        <input type="radio" id="old" name="sortByOrder" value="old" v-model="orderSort" @change="sort">
+                        <label for="old">old</label><br>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Filter by</legend>
+
+                    <label for="filter-email">Search:</label>
+                    <input type="text" id="filter-email" name="filter-email" v-model="filterBy" @input="filter"><br>
+
+                    <br>
+                    <label>Filter by domain:</label>
+                    <div>
+                        <button v-for="domain in emails_domain" :key="domain" @click="filterByDomain(domain)">{{ domain }}</button>
+                    </div>
+
+                </fieldset>
+                <fieldset>
+                    <legend>Pagination</legend>
+
+                    <label for="perPage">Per page:</label>
+                    <input type="number" id="perPage" name="perPage" value="10" min="1" v-model="perPage" @input="changePage"><br><br>
+
+                    <label for="cPage">Page:</label>
+                    <input type="number" id="cPage" name="cPage" value="1" min="1" v-model="cPage" @input="changePage">
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>Action</legend>
+                    <button @click="deleteEntry">delete</button>
+                    <button @click="exportEntry">export to Csv</button>
+                </fieldset>
+            </fieldset>
+            <br>
+            <div>
+                <table>
+                    <tr>
+                        <!-- <th>_id</th> -->
+                        <th>
+                            <input type="checkbox" ref="selectAllBtn" @click="selectAll">
+                        </th>
+                        <th>id</th>
+                        <th>email</th>
+                        <th>date</th>
+                    </tr>
+                    <tr v-for="email in emails_filtered" :key="email.id" v-if="isVisible(email._id)">
+                        <!-- <td>{{ email._id }}</td> -->
+                        <td>
+                            <input type="checkbox" :checked="email.selected" @change="select(email.id)">
+                            <!-- {{ email.selected }} -->
+                        </td>
+                        <td>{{ email.id }}</td>
+                        <td>{{ email.email }}</td>
+                        <td>{{ email.timestamp }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script src="./src/admin.js"></script>
+    </body>
+</html>
